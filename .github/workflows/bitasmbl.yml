@@ -86,7 +86,7 @@ jobs:
             -w "\n%{http_code}" \
             -X POST https://a9ea-176-221-143-53.ngrok-free.app/users/check-token-validity \
             -H "Content-Type: application/json" \
-            -H "Authorization: Bearer ${ secrets.BITASMBL_TOKEN }"\
+            -H "Authorization: Bearer ${{ secrets.BITASMBL_TOKEN }}"\
           )
 
           BODY=$(echo "$RESPONSE" | sed '$d')
@@ -125,7 +125,7 @@ jobs:
           REPO: ${ github.repository }
           BASE_SHA: ${ github.event.before }
           COMMIT_SHA: ${ github.sha }
-          BITASMBL_TOKEN: ${ secrets.BITASMBL_TOKEN }
+          BITASMBL_TOKEN: ${{ secrets.BITASMBL_TOKEN }}
           GITHUB_TOKEN: ${ github.token }
         run: |
           PAYLOAD=$(jq -n \
