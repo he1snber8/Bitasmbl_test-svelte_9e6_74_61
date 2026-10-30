@@ -1,4 +1,3 @@
-
 name: Bitasmbl Validation
 on:
   push:
@@ -63,8 +62,7 @@ jobs:
             echo "::error::$BODY"
             exit 1
           fi
-
- prepare-project-units-evaluation:
+  prepare-project-units-evaluation:
     # if: github.event.head_commit.message != 'bitasmbl:token-check' && github.event.head_commit.message != 'bitasmbl:remove-token-check'
     if: github.event.head_commit.message != 'bitasmbl:init'
     environment: BITASMBL_ENV
